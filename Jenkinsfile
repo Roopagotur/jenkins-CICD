@@ -7,10 +7,11 @@ pipeline {
 
     stages {
         stage('Checkout Code') {
-            steps {
-                git 'https://github.com/Roopagotur/jenkins-CICD.git'
-            }
-        }
+    steps {
+        git branch: 'main', url: 'https://github.com/Roopagotur/jenkins-CICD.git'
+    }
+}
+
 
         stage('Install Dependencies') {
             steps {
