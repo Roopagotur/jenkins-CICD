@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_IMAGE = 'ghcr.io/roopagotur/angular-app:latest'
-    }
+    docker {
+            image 'node:18-alpine'
+        }
 
     stages {
         stage('Checkout Code') {
