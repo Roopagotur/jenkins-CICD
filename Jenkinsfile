@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18-alpine'
-        }
-    }
+    agent any
 
     environment {
         DOCKER_IMAGE = 'ghcr.io/roopagotur/angular-app:latest'
@@ -11,10 +7,11 @@ pipeline {
 
     stages {
         stage('Checkout Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Roopagotur/jenkins-CICD.git'
-            }
-        }
+    steps {
+        git branch: 'main', url: 'https://github.com/Roopagotur/jenkins-CICD.git'
+    }
+}
+
 
         stage('Install Dependencies') {
             steps {
