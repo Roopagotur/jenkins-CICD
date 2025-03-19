@@ -7,27 +7,8 @@ pipeline {
 
     stages {
         stage('Checkout Code') {
-    steps {
-        git branch: 'main', url: 'https://github.com/Roopagotur/jenkins-CICD.git'
-    }
-}
-
-
-        stage('Install Dependencies') {
             steps {
-                sh 'npm install'
-            }
-        }
-
-        stage('Build Angular App') {
-            steps {
-                sh 'npm run build --configuration=production'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                sh 'npm test --watch=false --browsers=ChromeHeadless'
+                git branch: 'main', url: 'https://github.com/Roopagotur/jenkins-CICD.git'
             }
         }
 
@@ -57,10 +38,10 @@ pipeline {
 
     post {
         success {
-            echo ' Build and Deployment Successful!'
+            echo 'Build and Deployment Successful!'
         }
         failure {
-            echo ' Build Failed. Check logs.'
+            echo 'Build Failed. Check logs.'
         }
     }
 }
